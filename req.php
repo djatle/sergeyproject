@@ -23,49 +23,7 @@
 		  }        
 						   
 	  }
-/*	  
-		// echo"<pre>";
-		 //print_r($_POST);
-	  //echo"</pre>";
-	  //}
-	 // if (empty ($_POST['Email'])){
-	//	  $err[]= 'не указан email';
-	  
-	 // }
-	  
-	//  if (empty ($_POST['Login'])){
-	 // $err[]= 'не указан логин';}
-	 
-    //  if (empty ($_POST['Password'])){
-	//  $err[]= 'не указан пароль';} 
 
-   //   if ($_POST['Password']!=$_POST['Password_2']){
-   //   $err[]= 'несовпадают пароли';}
-	  
-	//  $query = "SELECT * FROM users WHERE login = '".$_POST['Login']."'";
-	//  $resp = mysql_query($query);             //
-	//  $row = mysql_fetch_array($resp);         //создали массив
-	//  $err[] = 'такой логин уже существует';}
-        	  
-		  
- //     if (count($err)>0){
- //         echo"<pre>";
- //         print_r($err);
- //         echo"</pre>";		  
-//	  }
-//	   else{
-//		   $query = "INSERT INTO users VALUES (Null, '".$_POST['Email']."', '".$_POST['Login']."', '".$_POST['Password']."', now(), now(), 'unblock')";
-		   //$err=$db->exec($query);
-//		   $res = mysql_query($query);
-           
-          ?>
-          <script>
-//            document.location.href = 'index.php';
-           </script>
-            <?php		   
-//	   }
-	  ?>
-	  */
 	  ?>
 <form method = "POST" action = 'req.php'>
  
