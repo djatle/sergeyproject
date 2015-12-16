@@ -1,0 +1,118 @@
+#header {
+         height: 220px;
+		 background: url(../img/gesipolos49.jpg);
+		 }
+
+.logo {
+         float: left;
+         padding: 10px;
+		 width: 200px px;
+		 height: 200px;
+}
+
+#header h1{
+
+padding: 50px;
+margin: 0;
+color: white;
+text-align: center;
+font-size: 50px;
+font-style: italic;
+
+}
+
+
+
+body{
+/*position: relative;*/ /*удалить, если чо*/
+height: 100%;
+padding: 0;
+margin: 0;
+background: url(../img/fon.jpg)
+}		 
+
+.top-menu a{
+-moz-box-flex:1;
+-webkit-flex:1;
+flex: 1;
+display: block;
+font-size: 25px;
+text-decoration:none;
+text-align: center;
+padding: 10px;
+background: black;
+border-right: 2px solid gray;
+color: white;
+
+}
+
+.top-menu a:hover{
+background-color: white;
+color: black;
+}
+
+.top-menu{
+display:-moz-box;
+display:-webkit-flex;
+display: flex;
+width: 100%;
+margin: 0 auto;
+border: 2px solid gray;
+border-radius: 5px;
+}
+	
+.btn-block{
+margin-top: 15px;
+background-color: gray;
+border: none;
+}
+
+.content{
+	color: white;
+	height: 100%;
+	
+}
+.content h2, h3, h4{
+	text-align: center;
+}
+
+#footer{
+display: block;
+/*position: absolute;
+bottom: -2000;*/
+height: 80px;
+text-align: center;
+background-color:;
+width: 100%;
+
+
+}
+#footer a{
+color: red;
+}
+
+#pogoda td{
+	background-color: gray;
+}
+
+#pogoda {
+	
+	margin-top: 15px;
+	
+		
+}
+
+.col-md-6{
+	
+	background-color: black;
+	border: 2px solid white;
+
+}
+
+#left{
+	
+}
+
+
+
+
