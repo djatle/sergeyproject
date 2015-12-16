@@ -1,0 +1,15 @@
+
+#maincont{
+	background-color: black;
+	height: 100%;
+}
+
+footer{
+	background-color: white;
+	dispaly: block;
+	position: absolute;
+	bottom:0;
+	width: 50%;
+	text-align: center;
+	float: center;
+}
