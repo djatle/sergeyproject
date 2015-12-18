@@ -7,6 +7,32 @@
 				
 				if($_POST)
 				{
+				 /* echo "<pre>";
+                      print_r($_FILES);
+                echo "</pre>";
+				exit; */
+				  if ($_FILES)
+				  {   
+			       
+					  
+			         
+					  
+					  $fan = explode('.',$_FILES['addfile']['name']);
+					  
+					  if (end($fan)=='jpg' or end($fan)=='png')
+					  {
+						   $real_name   = date('y_m_d_h_m_s').'.'.end($fan);
+					  		 $path = $_SERVER['DOCUMENT_ROOT'].'/media/uploaded/'.$real_name;			  
+					  move_uploaded_file($_FILES['addfile']['tmp_name'], $path);  
+					  echo 'Файл успешно добавлен';                                                   
+					  }
+					    
+						 else {echo 'недопустимый тип добавляемого файла';
+					   $real_name='';
+						 }
+					  
+				  }
+                				
 				$database = new Database;
 				
 				$catname = $_POST['CatName'];
@@ -14,31 +40,26 @@
 				$catchar = $_POST['CatChar'];
 				$catcont = $_POST['editor1'];
 				
-				$database->query("INSERT INTO cats VALUES(Null, '".$catname."', '".$catcolor."', '".$catchar."', '".$catcont."', 'show', now())");
+				
+				$database->query("INSERT INTO cats VALUES(Null, '".$catname."', '".$catcolor."', '".$catchar."', '".$catcont."', '".$real_name."', 'show', now())");
 				
 				
 				
-				/*$database->query("INSERT INTO cats(id, name, color, chara, content, showhide, putdate) VALUES (Null,'".$_Post['CatName']."', '".$_Post['CatColor']."', '".$_Post['CatChar']."', '".$_Post['editor1']."', 'show', now())"); */
 				
-			 
-			 
-			 
-			 
-			 /*	$database->bind(':Id', Null);
-			    $database->bind(':name', $_POST['CatName']);
-                $database->bind(':color', $_Post['CatColor']);
-                $database->bind(':chara', $_Post['CatChar']);
-				$database->bind(':content', $_Post['editor1']);
-          	   	$database->bind(':showhide', 'show'); 
-			    $database->bind(':putdate', now);  */
 				$database->execute(); 
+			 
+			 
+			 
+			 
+			 
+				
 				
 				}
 				
 				?>
 			 <div class="cat">Здесь вы можете разместить параметры ваших котов. Наша организация гарантирует бережное отношение
 			 к параматрам ваших котов.</div>
-	<form method = "POST" action = 'cabinet.php'>
+	<form method = "POST" action = 'cabinet.php' enctype = 'multipart/form-data'>
 		 <div class="form-group">
     <label for="exampleInputName2">Имя кота</label>
     <input type="text" class="form-control" id="exampleInputName2" placeholder="Мурзик" name = "CatName">
@@ -56,6 +77,10 @@
     <label for="exampleInputEmail1">Описание особенностей кота</label>
     <textarea class="ckeditor" name="editor1"></textarea>
 	
+  </div>
+  <div> 
+   <label>Здесь вы можете поместить фотографию кота</label>
+  <input type = "file" name = 'addfile'>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
   </form>

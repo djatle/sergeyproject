@@ -39,6 +39,7 @@ rel = "stylesheet">
  <a href = "index.php?url=goods"> Товары</a>
  <a href = "index.php?url=services"> Услуги</a>
  <a href = "index.php?url=contact"> Контакты</a>
+ <a href = "../cats.php"> Коты</a>
  <?php 
  if($_SESSION['id'])
  { ?>

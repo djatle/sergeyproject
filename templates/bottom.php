@@ -3,7 +3,7 @@
 	
 	
 
-<!--	<div class = "col-md-3">
+	<div class = "col-md-3">
 	<table id = "pogoda" width="100%" height="180" style="background-color:gray; border: #cccccc 1px solid; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="2" cellspacing="0">
 <tr><td><a href="http://6.pogoda.by/26850" style="font-family:Tahoma; font-size:12px; color:#003399;" title="Погода Минск на 6 дней - Гидрометцентр РБ" target="_blank">Погода Минск</a>
 </td></tr>
@@ -20,7 +20,7 @@
 <tr><td align="right">Информация сайта <a href="http://www.pogoda.by" target="_blank" style="font-family:Tahoma; font-size:12px; color:#003399;">pogoda.by</a>
 </td></tr>
 </table>
-	</div>!-->
+	</div>
 
 </div>  	
 <div id = "pre-footer" ></div>
