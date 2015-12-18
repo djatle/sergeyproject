@@ -22,7 +22,12 @@
 					  if (end($fan)=='jpg' or end($fan)=='png')
 					  {
 						   $real_name   = date('y_m_d_h_m_s').'.'.end($fan);
-					  		 $path = $_SERVER['DOCUMENT_ROOT'].'/media/uploaded/'.$real_name;			  
+						     $dir = $_SERVER['DOCUMENT_ROOT'].'/media/uploaded/'.$_SESSION['id'].'/';
+							 
+					  		 $path = $dir.$real_name;
+                      if(!is_file($dir)){
+					        @mkdir($dir, 0777, true);}
+							
 					  move_uploaded_file($_FILES['addfile']['tmp_name'], $path);  
 					  echo 'Файл успешно добавлен';                                                   
 					  }
