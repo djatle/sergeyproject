@@ -7,6 +7,7 @@
 			$database->query("SELECT * FROM cats ORDER BY id");
 			$rows = $database->resultset();
 			
+			$user_name = $database->single();
 			foreach($rows as $key =>$value){
 				
 				if($value['files']!=''){
@@ -18,11 +19,17 @@
 				}
 			
 			 
-			 echo $pic;
+			 //echo $pic;
+		     
+			 $database->query("SELECT * FROM users WHERE id = '".$value['usersid']."'" );
+			 $author = $database->single();
+			 
+			 
+			 echo "Автор кота".$author['login'];?><br><?
 			 echo "Имя кота:".$value['name'];?><br><?
 			 echo "Масть кота".$value['color'];?><br><?
 			 echo "Характер кота".$value['chara'];?><br><?
-			
+			 echo "Особенности кота".$value['content'];?><hr><?
 			
 			}	
 			

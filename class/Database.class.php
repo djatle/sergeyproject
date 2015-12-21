@@ -17,7 +17,7 @@ private $error;
 		$dsn = 'mysql:host=' . $this->host . ';port= '. $this->port.';dbname=' . $this->dbname ;        //установка типа подключаемой базы данных
                  		
 		$options = array(
-          PDO::ATTR_PERSISTENT => true, 
+          PDO::ATTR_PERSISTENT => false, 
           PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION );                          //фиг знает, что здесь присходит
 				
 		

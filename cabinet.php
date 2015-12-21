@@ -2,8 +2,52 @@
 <?php include 'class/database.class.php';?>
  <?php           
 			if($_SESSION['id']){
-				
+				$users_id = $_SESSION['id'];
 				$query = "SELECT * FROM users WHERE id = '".$_SESSION['id']."'";
+				
+				$database_1 = new Database;
+				$database_1->query("SELECT * FROM cats WHERE usersid = '".$users_id."'");
+				$row_cats = $database_1->resultset();
+			 
+				echo 'Коты добавленные вами' ?><br><? 
+				  if(count($row_cats)>0){
+					 
+					 ?>
+					 
+					 <table class = 'table table-bordered'>
+				 <tr>
+				     <th>
+					    Фото
+						</th>
+						<th>Имя кота</th>
+						<th>Что делать с котом</th>
+						</tr>
+										 
+				 <? for ($i=0; $i<count($row_cats); $i++)
+				  
+				  {  ?>
+					  <tr>
+					     <td><? $row_cats[$i]['files'];?></td>
+						 <td><? echo $row_cats[$i]['name'];?></td>
+						 <td><a class = 'btn btn-default btn-block dell' href = 'cats_del.php?id'  data_url = 'cats_del.php?id=<?=$row_cats[$i]['id'];?>'>Выгнать на улицу</a></td>
+						     
+						 </tr>
+						 
+					  <?
+				  }
+					 // echo $row_cats[$i]['name'];?><br><?}
+				  ?>
+				     </table>
+					 <?
+				 
+				  
+				    // echo "<pre>";
+                       // print_r($row_cats);
+                    // echo "</pre>";
+				   
+				 
+				
+				   
 				
 				if($_POST)
 				{
@@ -13,9 +57,7 @@
 				exit; */
 				  if ($_FILES)
 				  {   
-			       
-					  
-			         
+			       					         
 					  
 					  $fan = explode('.',$_FILES['addfile']['name']);
 					  
@@ -29,7 +71,8 @@
 					        @mkdir($dir, 0777, true);}
 							
 					  move_uploaded_file($_FILES['addfile']['tmp_name'], $path);  
-					  echo 'Файл успешно добавлен';                                                   
+					  echo 'Файл успешно добавлен';
+                      					  
 					  }
 					    
 						 else {echo 'недопустимый тип добавляемого файла';
@@ -46,7 +89,7 @@
 				$catcont = $_POST['editor1'];
 				
 				
-				$database->query("INSERT INTO cats VALUES(Null, '".$catname."', '".$catcolor."', '".$catchar."', '".$catcont."', '".$real_name."', 'show', now())");
+				$database->query("INSERT INTO cats VALUES(Null, '".$users_id."', '".$catname."', '".$catcolor."', '".$catchar."', '".$catcont."', '".$real_name."', 'show', now())");
 				
 				
 				
@@ -60,6 +103,8 @@
 				
 				
 				}
+				
+				
 				
 				?>
 			 <div class="cat">Здесь вы можете разместить параметры ваших котов. Наша организация гарантирует бережное отношение
@@ -106,4 +151,10 @@
 
  <script src="media/ckeditor/ckeditor.js">
   </script>
+
+  <script src = '/cabinet.js'>
+  </script> 
+ 
+  
+  
 	  

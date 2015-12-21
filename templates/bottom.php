@@ -37,3 +37,5 @@
 
 
 </html>
+ <script src = '/cabinet.js'>
+  </script> 
