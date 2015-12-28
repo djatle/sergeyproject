@@ -39,3 +39,4 @@
 </html>
  <script src = '/cabinet.js'>
   </script> 
+  <script src = '../media/js/gallery.js'></script>

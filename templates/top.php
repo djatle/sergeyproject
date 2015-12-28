@@ -9,6 +9,7 @@ define("DB_PORT", 3307);
 
 <!Docktype html>
 <html>
+<script src= "../media/js/jquery.min.js"></script>
 <meta charset = "utf-8">
 <meta name = "description" content = "">
 <meta name = "keywords" content = "">

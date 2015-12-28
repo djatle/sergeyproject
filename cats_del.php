@@ -1,11 +1,5 @@
 <?php require_once 'class/database.class.php';?>
-<?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "sergeyproject");        
-define("DB_PORT", 3307);
-?>
+
 
 <?php
    $database = new Database();

@@ -24,7 +24,7 @@
 			 $database->query("SELECT * FROM users WHERE id = '".$value['usersid']."'" );
 			 $author = $database->single();
 			 
-			 
+			 echo $pic;
 			 echo "Автор кота".$author['login'];?><br><?
 			 echo "Имя кота:".$value['name'];?><br><?
 			 echo "Масть кота".$value['color'];?><br><?

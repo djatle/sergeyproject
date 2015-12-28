@@ -8,13 +8,23 @@
 				$database_1 = new Database;
 				$database_1->query("SELECT * FROM cats WHERE usersid = '".$users_id."'");
 				$row_cats = $database_1->resultset();
-			 
+			    
+				
 				echo 'Коты добавленные вами' ?><br><? 
-				  if(count($row_cats)>0){
+				  // if(count($row_cats)>0){
 					 
-					 ?>
 					 
-					 <table class = 'table table-bordered'>
+					  
+					  foreach($row_cats as $key=>$value)
+				         { 	
+				  			                 
+				  			if(!empty($value['files'])){
+				             $pict = "<img src = '/media/uploaded/".$value['usersid']."/".$value['files']."' class='pic' data_id=".$value['id']."/>";
+			                                          }
+			                 else {
+				              $pict ="<img src = '/media/uploaded/no_photo.png' class='pic'/>";
+			                      } ?>
+						 <table class = 'table table-bordered'>
 				 <tr>
 				     <th>
 					    Фото
@@ -23,24 +33,21 @@
 						<th>Что делать с котом</th>
 						</tr>
 										 
-				 <? for ($i=0; $i<count($row_cats); $i++)
-				  
-				  {  ?>
-					  <tr>
-					     <td><? $row_cats[$i]['files'];?></td>
-						 <td><? echo $row_cats[$i]['name'];?></td>
-						 <td><a class = 'btn btn-default btn-block dell' href = 'cats_del.php?id'  data_url = 'cats_del.php?id=<?=$row_cats[$i]['id'];?>'>Выгнать на улицу</a></td>
-						     
-						 </tr>
-						 
-					  <?
-				  }
-					 // echo $row_cats[$i]['name'];?><br><?}
-				  ?>
-				     </table>
-					 <?
 				 
 				  
+				  
+					  <tr>
+					     <td><? echo $pict;?></td>
+						 <td><? echo $value['name'];?></td>
+						 <td>
+						 <a class = 'btn btn-default btn-block edit'  href = 'edit_cat.php?id=<?=$value['id'];?>'>Помыть и причесать</a>
+						 <a class = 'btn btn-default btn-block dell'  href = 'one_cat.php?id=<?=$value['id'];?>'>Узнать больше</a>
+						 <a class = 'btn btn-default btn-block dell'  href = 'cats_del.php?id=<?=$value['id'];?>'>Выгнать на улицу</a></td>
+						     
+						 </tr>
+						  </table>
+					  <?
+				      }			  
 				    // echo "<pre>";
                        // print_r($row_cats);
                     // echo "</pre>";
@@ -96,15 +103,8 @@
 				
 				$database->execute(); 
 			 
-			 
-			 
-			 
-			 
-				
 				
 				}
-				
-				
 				
 				?>
 			 <div class="cat">Здесь вы можете разместить параметры ваших котов. Наша организация гарантирует бережное отношение
@@ -148,13 +148,6 @@
 	
       
 <?php require_once('templates/bottom.php');?>	
-
- <script src="media/ckeditor/ckeditor.js">
-  </script>
-
-  <script src = '/cabinet.js'>
-  </script> 
+ <script src = "media/ckeditor/ckeditor.js"></script>
  
-  
-  
-	  
+ <script src = "/cabinet.js"></script>
