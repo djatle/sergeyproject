@@ -11,7 +11,7 @@
 			    
 				
 				echo 'Коты добавленные вами' ?><br><? 
-				  // if(count($row_cats)>0){
+				
 					 
 					 
 					  
@@ -24,7 +24,7 @@
 			                 else {
 				              $pict ="<img src = '/media/uploaded/no_photo.png' class='pic'/>";
 			                      } ?>
-						 <table class = 'table table-bordered'>
+						 <table class = 'table table-bordered cabinet-cats'>
 				 <tr>
 				     <th>
 					    Фото
@@ -41,7 +41,7 @@
 						 <td><? echo $value['name'];?></td>
 						 <td>
 						 <a class = 'btn btn-default btn-block edit'  href = 'edit_cat.php?id=<?=$value['id'];?>'>Помыть и причесать</a>
-						 <a class = 'btn btn-default btn-block dell'  href = 'one_cat.php?id=<?=$value['id'];?>'>Узнать больше</a>
+						 <a class = 'btn btn-default btn-block more'  href = 'one_cat.php?id=<?=$value['id'];?>'>Узнать больше</a>
 						 <a class = 'btn btn-default btn-block dell'  href = 'cats_del.php?id=<?=$value['id'];?>'>Выгнать на улицу</a></td>
 						     
 						 </tr>
@@ -94,14 +94,23 @@
 				$catcolor = $_POST['CatColor'];
 				$catchar = $_POST['CatChar'];
 				$catcont = $_POST['editor1'];
+				$catcat = $_POST['CatCategory'];
+				  
+				  if ($catcat=="Домашний, ласковый")
+				  {$catcat = 1;}
+			      else{$catcat = 2;}
+				
+				
+				 
 				
 				
 				$database->query("INSERT INTO cats VALUES(Null, '".$users_id."', '".$catname."', '".$catcolor."', '".$catchar."', '".$catcont."', '".$real_name."', 'show', now())");
-				
-				
-				
-				
 				$database->execute(); 
+				
+				
+				$query = "INSERT INTO categories VALUES('$catcat', '$catname')";
+				$database->query($query);
+				$database->execute();
 			 
 				
 				}
@@ -122,6 +131,12 @@
   <label for="exampleInputName2">Характер кота</label>
     <input type="text" class="form-control" id="exampleInputName2" placeholder="Мерзкий" name = "CatChar">
   </div>
+  
+  <label for="exampleInputName2">Выберите категорию кота</label>
+  <select class="form-control" name = "CatCategory">
+  <option>Домашний, ласковый</option>
+  <option>Дикий, лесной</option>
+ </select>
   
   <div class="form-group">
     <label for="exampleInputEmail1">Описание особенностей кота</label>

@@ -24,7 +24,7 @@
 				
 				
 				
-				$database->query("UPDATE cats SET name = '".$catname."' WHERE id = '$cats_id'");
+				$database->query("UPDATE cats SET name = '".$catname."', color = '".$catcolor."', chara = '".$catchar."' WHERE id = '$cats_id'");
 				
 				
 				$database->execute();
@@ -67,7 +67,7 @@
    <label>Здесь вы можете поместить фотографию кота</label>
   <input type = "file" name = 'addfile'>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Сохранить изменения</button>
   </form>
   
 			   <?
@@ -78,3 +78,4 @@
 	
 	?>   
 	   <?php require_once('templates/bottom.php');?>
+<script src = "media/ckeditor/ckeditor.js"></script>
